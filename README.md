@@ -7,6 +7,7 @@ The Gym Membership and Class Booking System is a web application developed to si
 ## Team Members and Roles
 
 * [Prajwal Garla](https://github.com/Prajwal148/CIS641-HW2-Garla/tree/master) - Frontend Engineer 
+* [Guru Saran Reddy Busireddy](https://github.com/gurushubb/CIS641-HW2-Busireddy/tree/master) - UI/UX Designer
 *  Sai Posani (Role 3, Role 4)
 * Mahesh Peta (Backend engineer)
 
