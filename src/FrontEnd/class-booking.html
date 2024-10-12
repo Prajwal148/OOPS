@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Booking - Gym Membership</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Book Your Class</h1>
+    <nav>
+      <a href="profile.html">Profile</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <section id="class-booking">
+    <h2>Available Classes</h2>
+    <form action="/book-class" method="POST">
+      <label for="class">Select Class:</label>
+      <select id="class" name="class">
+        <option value="yoga">Yoga</option>
+        <option value="hiit">HIIT</option>
+        <option value="pilates">Pilates</option>
+      </select>
+
+      <label for="date">Class Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <button type="submit">Book Class</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 Gym Membership and Class Booking System</p>
+  </footer>
+</body>
+</html>
