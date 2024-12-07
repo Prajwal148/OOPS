@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Membership & Class Booking System</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <h1>Fitness Gym</h1>
+      <nav>
+        <a href="#about">About Us</a>
+        <a href="{% url 'classes' %}">Classes</a>
+        <a href="#">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Stay Fit, Stay Healthy</h2>
+      <p>Join our gym today and take your fitness to the next level!</p>
+    </div>
+    
+  </section>
+
+  <!-- Classes Section -->
+  <section id="classes" class="container">
+    <h2>Available Classes</h2>
+    <div class="class-list">
+      <div class="class-item">
+        <img src="{% static 'images/yoga-class.jpg' %}" alt="Yoga Class">
+        <h3>Yoga</h3>
+        <p>Time: 6:00 AM - 7:00 AM</p>
+      </div>
+      <div class="class-item">
+         <img src="{% static 'images/hiit-class.jpg' %}" alt="Hiit Class">
+        <h3>HIIT</h3>
+        <p>Time: 7:00 AM - 8:00 AM</p>
+      </div>
+      <div class="class-item">
+        <img src="{% static 'images/pilates-class.jpg' %}" alt="Pilates Class">
+        <h3>Pilates</h3>
+        <p>Time: 8:00 AM - 9:00 AM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Gym Membership and Class Booking System | All Rights Reserved</p>
+      
+    </div>
+  </footer>
+</body>
+</html>

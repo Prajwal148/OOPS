@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Gym Membership</title>
+  
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section#register {
+      background-color: white;
+      width: 60%;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    section#register h2 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    /* Styling for Register Button */
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50; /* Green color */
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button[type="submit"]:hover {
+      background-color: #45a049; /* Darker green on hover */
+      transform: scale(1.05); /* Slight scale effect */
+    }
+    button[type="submit"]:active {
+      background-color: #3e8e41; /* Even darker green on click */
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Register for Gym Membership</h1>
+    <nav>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'index' %}">Home</a>
+    </nav>
+  </header>
+  <br><br><br><br>
+  <section id="register">
+    <h2>Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+  </section>
+
+  
+</body>
+</html>

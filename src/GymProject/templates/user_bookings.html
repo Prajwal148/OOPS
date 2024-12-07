@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-size: 1rem;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-row input:focus,
+        .form-row textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .booking-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .booking-box p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 5px 0;
+        }
+        .booking-box p strong {
+            color: #333;
+        }
+    </style>
+</head>
+<header> 
+    <div class="container">
+        <h1>Fitness Gym</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'classes' %}">Classes</a>
+            <a href="{% url 'index' %}">Logout</a>
+        </nav>
+    </div>
+</header>
+<br><br><br><br><br><br><br>
+<body>
+   {% for booking in bookings %}
+    <div class="booking-box">
+        <p><strong>Class:</strong> {{ booking.class_name }}</p>
+        <p><strong>Instructor:</strong> {{ booking.instructor }}</p>
+        <p><strong>Price:</strong> {{ booking.price }}</p>
+    </div>
+   {% endfor %}
+</body>
+</html>

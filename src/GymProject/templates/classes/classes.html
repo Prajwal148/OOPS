@@ -1,0 +1,186 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+
+    <style>
+        /* General Body and Header Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page Title and Table */
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        td button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        td button:hover {
+            background-color: #45a049;
+        }
+
+        .empty-message {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+            padding: 20px 0;
+        }
+
+        /* Add Responsiveness */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            td, th {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            td button {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<header> 
+    <div class="container">
+        <h1>Fitness Gym</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'classes' %}">Classes</a>
+            <a href="{% url 'index' %}">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<h1>Classes</h1>
+
+<h2>All Gym Classes</h2>
+
+<!-- Display all gym classes in a table -->
+<table>
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Instructor</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Max Capacity</th>
+            <th>Created At</th>
+            <th>Price</th> <!-- Added Price Column -->
+            <th>Actions</th> <!-- Column for the button -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for gym_class in all_classes %}
+        <tr>
+            <td>{{ gym_class.class_name }}</td>
+            <td>{{ gym_class.instructor }}</td>
+            <td>{{ gym_class.start_time|date:"Y-m-d H:i" }}</td>  <!-- Formatting DateTime -->
+            <td>{{ gym_class.end_time|date:"Y-m-d H:i" }}</td>    <!-- Formatting DateTime -->
+            <td>{{ gym_class.max_capacity }}</td>
+            <td>{{ gym_class.created_at|date:"Y-m-d H:i" }}</td>  <!-- Formatting DateTime -->
+            <td>{{ gym_class.Price }}</td>
+            <td>
+                <!-- Form to select the class and pass the price -->
+                <form method="POST" action="{% url 'payments' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="price" value="{{ gym_class.Price }}">
+                    <input type="hidden" name="class_name" value="{{ gym_class.class_name }}">
+                    <input type="hidden" name="start_time" value="{{ gym_class.start_time|date:"Y-m-d H:i" }}">
+                    <input type="hidden" name="end_time" value="{{ gym_class.end_time|date:"Y-m-d H:i" }}">
+                    <input type="hidden" name="instructor" value="{{ gym_class.instructor }}">
+                    <button type="submit">Proceed to Payment</button>
+                </form>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8" class="empty-message">No gym classes available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
