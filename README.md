@@ -28,9 +28,10 @@ Before running the Gym Membership and Class Booking System, ensure you have the 
 
 ### Website Presentation
 [Watch the video here](https://youtu.be/LqefYoKkMlc?feature=shared)
+## Website Hosted on AWS
+### Website [http://3.135.202.82:8000/](http://3.135.202.82:8000/)
 
 ## Installation & Setup Instructions
-### Website [Hosted on AWS](http://3.135.202.82:8000/)
 ### Clone the Repository
 
 Start by cloning the repository to your local machine:
