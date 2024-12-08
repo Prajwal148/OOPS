@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '3.135.202.82']
 # Application definition
 
 INSTALLED_APPS = [
-    'GymProject'
+    
     'login',
     'payments',
     'user',
