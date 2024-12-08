@@ -8,7 +8,7 @@ from django.conf import settings
 from .models import Booking
 from django.contrib.auth.models import User
 
-import utils
+
 # Set up logging (optional)
 logger = logging.getLogger(__name__)
 
