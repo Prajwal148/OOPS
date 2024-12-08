@@ -35,7 +35,7 @@ Before running the Gym Membership and Class Booking System, ensure you have the 
 
 Start by cloning the repository to your local machine:
 
-''' bash
+ ```bash
 git clone https://github.com/Prajwal148/OOPS.git
 cd OOPS/GymProject
 python3 -m venv venv
