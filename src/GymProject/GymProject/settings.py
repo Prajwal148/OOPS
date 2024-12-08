@@ -135,3 +135,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
+
+# settings.py
+
+
+
+# settings.py
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # Set a limit to 10 MB (example)
